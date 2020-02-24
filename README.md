@@ -11,3 +11,7 @@ This is a news API built on React. The project is using New York Times' API to c
 https://developer.nytimes.com/docs/most-popular-product/1/overview
 
 ## Components
+
+I plan to have a search bar component, which will direct the user to a new page based on their search parameters.
+
+The other components/pages will be news split into specific topics such as world news, U.S. news, health, finance, business, sports, etc. Each section or topic will represent a new component.
