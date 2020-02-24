@@ -15,3 +15,13 @@ https://developer.nytimes.com/docs/most-popular-product/1/overview
 I plan to have a search bar component, which will direct the user to a new page based on their search parameters.
 
 The other components/pages will be news split into specific topics such as world news, U.S. news, health, finance, business, sports, etc. Each section or topic will represent a new component.
+
+## MVP goals
+
+The main focus for the project is to be able to take the users' search parameters and link them to a different component/page in the app, which will then compile news topics related to their search result.
+
+## Post-MVP goals
+
+Try and make it look more presentable? Not sure.
+
+## SWOT Analysis
