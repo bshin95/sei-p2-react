@@ -9,3 +9,5 @@ This is a news API built on React. The project is using New York Times' API to c
 ### NY Times API
 
 https://developer.nytimes.com/docs/most-popular-product/1/overview
+
+## Components
