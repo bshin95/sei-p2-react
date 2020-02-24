@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import Axios from "axios"
-import Search from "./Search"
 // import { Switch, Route, Link } from "react-router-dom"
 const NY_TIMES = process.env.REACT_APP_NY_TIMES_TOKEN
 
@@ -8,8 +7,8 @@ class Container extends Component {
   constructor() {
     super()
     this.state = {
-      title: "",
-      summary: "",
+      titles: [],
+      // summary: "",
       // image: ""
       isLoading: true
     }
@@ -29,30 +28,51 @@ class Container extends Component {
         `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
         `
       )
-      console.log(response)
+      console.log(response.data.response.docs)
       this.setState({
-        // title: response.data.docs.abstract,
-        // summary: response.data.docs.snippet
+        titles: response.data.response.docs,
+        // summary: response.data.docs.snippet,
+        isLoading: false
       })
-      // this.setState({
-      //   title: response.data
-      //   // summary: response.data.docs.snippet,
-      //   // isLoading: false
-      //   // image: response.data.docs.multimedia
-      // })
     } catch (error) {
       console.log(error)
     }
   }
 
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+  }
+
   render() {
-    console.log("inside the render")
+    const { titles, isLoading } = this.state
+    console.log(titles)
+
+    const articles = titles.map((title, index) => {
+      return (
+        <div key={index}>
+          <h3>{title.abstract}</h3>
+          <p>{title.snippet}</p>
+        </div>
+      )
+    })
+
     return (
       <div>
-        <h2>Hello</h2>
+        <div className="news">
+          <h1>Your news</h1>
+          {articles}
+        </div>
+        <button type="submit">Search</button>
       </div>
     )
   }
 }
+//wrap each component in a div and set a class to target each of them
 
 export default Container
