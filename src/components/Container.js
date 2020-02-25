@@ -29,10 +29,9 @@ class Container extends Component {
         `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${event}&api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
         `
       )
-      console.log(response.data.response.docs)
+      // console.log(response.data.response.docs)
       this.setState({
         titles: response.data.response.docs,
-        // summary: response.data.docs.snippet,
         isLoading: false
       })
     } catch (error) {
@@ -48,20 +47,14 @@ class Container extends Component {
   }
 
   handleSubmit = event => {
-    console.log("working submit")
     event.preventDefault()
+    console.log("working submit")
+    this.fetchNews(this.state.value)
   }
 
   render() {
-    // let filteredArticles = this.props.titles.filter(
-    //   (title) => {
-    //     return (
-    //       title.value
-    //     )
-    //   }
-    // )
     const { titles, isLoading } = this.state
-    console.log(titles)
+    // console.log(titles)
 
     const articles = titles.map((title, index) => {
       return (
