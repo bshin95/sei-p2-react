@@ -1,15 +1,16 @@
 import React, { Component } from "react"
 import Axios from "axios"
-// import { Switch, Route, Link } from "react-router-dom"
+import Search from "./Search"
+
+import { Route, Link } from "react-router-dom"
 const NY_TIMES = process.env.REACT_APP_NY_TIMES_TOKEN
 
 class Container extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       titles: [],
-      // summary: "",
-      // image: ""
+      value: "",
       isLoading: true
     }
 
@@ -25,7 +26,7 @@ class Container extends Component {
   fetchNews = async event => {
     try {
       const response = await Axios.get(
-        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
+        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${event}&api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
         `
       )
       console.log(response.data.response.docs)
@@ -40,16 +41,25 @@ class Container extends Component {
   }
 
   handleChange = event => {
+    console.log("working change")
     this.setState({
-      [event.target.name]: event.target.value
+      value: event.target.value
     })
   }
 
   handleSubmit = event => {
+    console.log("working submit")
     event.preventDefault()
   }
 
   render() {
+    // let filteredArticles = this.props.titles.filter(
+    //   (title) => {
+    //     return (
+    //       title.value
+    //     )
+    //   }
+    // )
     const { titles, isLoading } = this.state
     console.log(titles)
 
@@ -65,10 +75,16 @@ class Container extends Component {
     return (
       <div>
         <div className="news">
-          <h1>Your news</h1>
-          {articles}
+          <Route exact path={"/"}>
+            <h1>Your news</h1>
+            <Search
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+              value={this.state.value}
+            />
+            {articles}
+          </Route>
         </div>
-        <button type="submit">Search</button>
       </div>
     )
   }
