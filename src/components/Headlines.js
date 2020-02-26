@@ -7,18 +7,13 @@ class Headlines extends Component {
     super()
     this.state = {
       headliners: [],
-      // summary: "",
-      // image: ""
       isLoading: true
     }
 
     this.fetchHeadlines = this.fetchHeadlines.bind(this)
-
-    console.log("inside the constructor")
   }
   componentDidMount() {
     this.fetchHeadlines()
-    console.log("inside the component")
   }
 
   fetchHeadlines = async event => {
@@ -27,10 +22,9 @@ class Headlines extends Component {
         `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
         `
       )
-      console.log(response.data.results)
+      // console.log(response.data.results)
       this.setState({
         headliners: response.data.results,
-        // summary: response.data.docs.snippet,
         isLoading: false
       })
     } catch (error) {
@@ -44,19 +38,17 @@ class Headlines extends Component {
     })
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
-  }
-
   render() {
     const { headliners, isLoading } = this.state
-    console.log(headliners)
-
     const headlines = headliners.map((headline, index) => {
+      // console.log(headline.media)
       return (
         <div key={index}>
-          <h3>{headline.title}</h3>
+          <a href={headline.uri}>
+            <h3>{headline.title}</h3>
+          </a>
           <p>{headline.abstract}</p>
+          <img src={headline.media["media-data"]} />
         </div>
       )
     })

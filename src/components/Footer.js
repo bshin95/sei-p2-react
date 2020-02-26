@@ -9,9 +9,9 @@ import Technology from "./Technology"
 import Health from "./Health"
 import { Link, Route, Switch } from "react-router-dom"
 
-const Header = () => (
+const Footer = () => (
   <header>
-    <h1>The Times</h1>
+    <div className="divider"></div>
     <div>
       <nav className="sections">
         <li>
@@ -42,7 +42,7 @@ const Header = () => (
           <Link to="/Sports">Sports</Link>
         </li>
       </nav>
-      <div className="divider"></div>
+      <h1 className="footer-title"> ©2020 The Times</h1>
     </div>
     <main>
       <Switch>
@@ -75,4 +75,4 @@ const Header = () => (
   </header>
 )
 
-export default Header
+export default Footer
