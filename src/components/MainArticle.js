@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Axios from "axios"
+import image from "../images/placeholder.jpeg"
 const NY_TIMES = process.env.REACT_APP_NY_TIMES_TOKEN
 
 class Headlines extends Component {
@@ -19,11 +20,9 @@ class Headlines extends Component {
   fetchMainHeadline = async event => {
     try {
       const response = await Axios.get(
-        `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
+        `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${NY_TIMES}
         `
       )
-      // console.log(response.data)
-      // console.log(response.data.results)
       this.setState({
         mainHeadliners: response.data.results,
         isLoading: false
@@ -42,32 +41,36 @@ class Headlines extends Component {
   render() {
     const { mainHeadliners } = this.state
     mainHeadliners.length = 1
-    // console.log(mainHeadliners[0])
     const mainHeadlines = mainHeadliners.map((main, index) => {
-      // console.log(mainHeadliners[0])
       return (
-        <div key={index}>
-          <a href={main.uri}>
-            <h3>{main.title}</h3>
-          </a>
-          <p>{main.abstract}</p>
-          <img src={main.media["media-data"]} />
-        </div>
+        <>
+          {!this.state.isLoading ? (
+            <>
+              <div key={index}>
+                <div className="main-container">
+                  <div className="inner-container">
+                    <img
+                      className="main-image"
+                      src={
+                        main.media.length
+                          ? main.media[0]["media-metadata"][1].url
+                          : image
+                      }
+                    />
+                  </div>
+                  <div className="main-info">
+                    <a href={main.uri}>
+                      <h3>{main.title}</h3>
+                    </a>
+                    <p>{main.abstract}</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : null}
+        </>
       )
     })
-
-    // const { mainHeadliners } = this.state
-    // console.log(mainHeadliners[0])
-    // const mainHeadlines = mainHeadliners[0]
-    // return (
-    //   <div>
-    //     <a href={mainHeadlines.uri}>
-    //       <h3>{mainHeadlines.title}</h3>
-    //     </a>
-    //     <p>{mainHeadlines.abstract}</p>
-    //     <img src={mainHeadlines.media["media-data"]} />
-    //   </div>
-
     return (
       <div className="main-news">
         <h1>Headline News</h1>

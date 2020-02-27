@@ -18,7 +18,6 @@ class Container extends Component {
   }
   componentDidMount() {
     this.fetchNews()
-    console.log(NY_TIMES.data)
   }
 
   fetchNews = async event => {

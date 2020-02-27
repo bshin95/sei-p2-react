@@ -107,6 +107,31 @@ header li {
   width: 50%;
 }
 
+/* mainarticle css */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 2em;
+}
+
+.inner-container {
+  width: 50%;
+  justify-content: center;
+}
+
+.main-image {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
   .home-page {
     display: flexbox;

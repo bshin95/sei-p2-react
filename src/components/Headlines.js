@@ -23,7 +23,6 @@ class Headlines extends Component {
         `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${NY_TIMES}
         `
       )
-      // console.log(response.data.results)
       this.setState(
         {
           headliners: response.data.results
@@ -43,7 +42,6 @@ class Headlines extends Component {
 
   render() {
     const { headliners } = this.state
-    console.log(headliners)
     const headlines = headliners.map((headline, index) => {
       return (
         <>
