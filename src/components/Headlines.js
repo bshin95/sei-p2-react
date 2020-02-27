@@ -56,7 +56,7 @@ class Headlines extends Component {
                   className="headline-image"
                   src={
                     headline.media.length
-                      ? headline.media[0]["media-metadata"][1].url
+                      ? headline.media[0]["media-metadata"][2].url
                       : image
                   }
                 />

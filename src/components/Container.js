@@ -22,6 +22,7 @@ class Container extends Component {
 
   fetchNews = async event => {
     try {
+      console.log(NY_TIMES)
       const response = await Axios.get(
         `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${
           this.state.value ? event : "U.S.-news"
