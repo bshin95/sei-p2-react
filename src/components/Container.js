@@ -64,13 +64,13 @@ class Container extends Component {
             <h3>{title.abstract}</h3>
           </a>
           <p>{title.lead_paragraph}</p>
-          {/* <img
+          <img
             src={
-              `https://static01.nyt.com/${title.multimedia[0].url}`
+              title.multimedia.length
                 ? `https://static01.nyt.com/${title.multimedia[0].url}`
                 : image
             }
-          /> */}
+          />
         </div>
       )
     })
@@ -94,3 +94,7 @@ class Container extends Component {
 }
 
 export default Container
+
+// `https://static01.nyt.com/${title.multimedia[0].url}`
+//   ? `https://static01.nyt.com/${title.multimedia[0].url}`
+//   : image
