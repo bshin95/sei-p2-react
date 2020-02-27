@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Axios from "axios"
-import image from "../images/photo-1504711434969-e33886168f5c.jpeg"
+import image from "../images/placeholder.jpeg"
 // import Search from "./Search"
 // import { fetchWorld } from "./api-helper"
 
@@ -24,10 +24,9 @@ class Container extends Component {
   fetchWorlds = async event => {
     try {
       const response = await Axios.get(
-        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=world-news&api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
+        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=world-news&api-key=${NY_TIMES}
         `
       )
-      console.log(response.data.response.docs)
       this.setState({
         worlds: response.data.response.docs,
         isLoading: false
@@ -49,7 +48,7 @@ class Container extends Component {
   }
 
   render() {
-    const { worlds, isLoading } = this.state
+    const { worlds } = this.state
 
     const worldNews = worlds.map((world, index) => {
       return (
@@ -58,12 +57,14 @@ class Container extends Component {
             <h3>{world.abstract}</h3>
           </a>
           <p>{world.snippet}</p>
-          {/* <img
+          <img
+            className="container-image"
             src={
-              `https://static01.nyt.com/${world.multimedia[0].url}`
+              world.multimedia.length
                 ? `https://static01.nyt.com/${world.multimedia[0].url}`
                 : image
-            } */}
+            }
+          />
         </div>
       )
     })

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Axios from "axios"
+import image from "../images/placeholder.jpeg"
 
 import { Route } from "react-router-dom"
 const NY_TIMES = process.env.REACT_APP_NY_TIMES_TOKEN
@@ -22,7 +23,7 @@ class Container extends Component {
   fetchSports = async event => {
     try {
       const response = await Axios.get(
-        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=sports&api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
+        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=sports&api-key=${NY_TIMES}
         `
       )
       this.setState({
@@ -46,7 +47,7 @@ class Container extends Component {
   }
 
   render() {
-    const { sports, isLoading } = this.state
+    const { sports } = this.state
 
     const articles = sports.map((sport, index) => {
       return (
@@ -55,7 +56,14 @@ class Container extends Component {
             <h3>{sport.abstract}</h3>
           </a>
           <p>{sport.snippet}</p>
-          <img src={sport.multimedia.url} />
+          <img
+            className="container-image"
+            src={
+              sport.multimedia.length
+                ? `https://static01.nyt.com/${sport.multimedia[0].url}`
+                : image
+            }
+          />
         </div>
       )
     })

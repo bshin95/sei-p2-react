@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Axios from "axios"
+import image from "../images/placeholder.jpeg"
 const NY_TIMES = process.env.REACT_APP_NY_TIMES_TOKEN
 
 class Headlines extends Component {
@@ -19,14 +20,16 @@ class Headlines extends Component {
   fetchHeadlines = async event => {
     try {
       const response = await Axios.get(
-        `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
+        `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${NY_TIMES}
         `
       )
       // console.log(response.data.results)
-      this.setState({
-        headliners: response.data.results,
-        isLoading: false
-      })
+      this.setState(
+        {
+          headliners: response.data.results
+        },
+        () => this.setState({ isLoading: false })
+      )
     } catch (error) {
       console.log(error)
     }
@@ -39,17 +42,31 @@ class Headlines extends Component {
   }
 
   render() {
-    const { headliners, isLoading } = this.state
+    const { headliners } = this.state
+    console.log(headliners)
     const headlines = headliners.map((headline, index) => {
-      // console.log(headline.media)
       return (
-        <div key={index}>
-          <a href={headline.uri}>
-            <h3>{headline.title}</h3>
-          </a>
-          <p>{headline.abstract}</p>
-          <img src={headline.media["media-data"]} />
-        </div>
+        <>
+          {!this.state.isLoading ? (
+            <>
+              <div key={index}>
+                <a href={headline.uri}>
+                  <h3>{headline.title}</h3>
+                </a>
+                <p>{headline.abstract}</p>
+                <img
+                  className="headline-image"
+                  src={
+                    headline.media.length
+                      ? headline.media[0]["media-metadata"][1].url
+                      : image
+                  }
+                />
+              </div>
+              <div className="splitter"></div>
+            </>
+          ) : null}
+        </>
       )
     })
 

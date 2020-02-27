@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import Axios from "axios"
-import Search from "./Search"
 
-import { Route, Link } from "react-router-dom"
+import { Route } from "react-router-dom"
 const NY_TIMES = process.env.REACT_APP_NY_TIMES_TOKEN
 
 class Container extends Component {
@@ -23,7 +22,7 @@ class Container extends Component {
   fetchBusiness = async event => {
     try {
       const response = await Axios.get(
-        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=health&api-key=BeRuaOQEdujRzst2S84XtZljABFOj9ru
+        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=health&api-key=${NY_TIMES}
         `
       )
       this.setState({
