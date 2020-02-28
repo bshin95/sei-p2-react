@@ -34,12 +34,6 @@ const Header = () => (
           <Link to="/Business">Business</Link>
         </li>
         <li>
-          <Link to="/Technology">Technology</Link>
-        </li>
-        <li>
-          <Link to="/Health">Health</Link>
-        </li>
-        <li>
           <Link to="/Sports">Sports</Link>
         </li>
       </nav>
@@ -61,12 +55,6 @@ const Header = () => (
         </Route>
         <Route path="/Economy">
           <Economy />
-        </Route>
-        <Route path="/Technology">
-          <Technology />
-        </Route>
-        <Route path="/Health">
-          <Health />
         </Route>
         <Route path="/Sports">
           <Sports />

@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import Axios from "axios"
 import image from "../images/placeholder.jpeg"
+import World from "./World"
+
 const NY_TIMES = process.env.REACT_APP_NY_TIMES_TOKEN
 
 class Headlines extends Component {
@@ -23,6 +25,7 @@ class Headlines extends Component {
         `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${NY_TIMES}
         `
       )
+      console.log(response.data.results)
       this.setState({
         mainHeadliners: response.data.results,
         isLoading: false
@@ -73,7 +76,7 @@ class Headlines extends Component {
     })
     return (
       <div className="main-news">
-        <h1>Headline News</h1>
+        <h1>Top Trending News</h1>
         {mainHeadlines}
       </div>
     )

@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Catamaran&display=swap");
+
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Catamaran;
 }
 
 .App {
@@ -48,6 +52,7 @@ body {
 header {
   padding: 0.2em 0;
   display: flexbox;
+  font-family: "Roboto+Slab";
 }
 
 header h1 {
@@ -63,6 +68,7 @@ header li {
 .sections {
   font-size: 0.75em;
   justify-content: space-around;
+  font-family: Open + Sans + Condensed;
 }
 
 .sections li {
@@ -98,9 +104,10 @@ header li {
 }
 
 .splitter {
-  border: 1px solid rgba(20, 0, 0, 0.05);
+  border: 1px solid rgba(20, 0, 0, 0.2);
   -webkit-background-clip: padding-box; /* for Safari */
   background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+  margin: 1em;
 }
 
 .container-image {
@@ -130,6 +137,21 @@ header li {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: left;
+}
+
+.sections {
+  padding: 1em 0;
+}
+
+input {
+  box-shadow: 10px 10px 5px grey;
+  border-radius: 15%;
+}
+
+button {
+  margin: 0 1em;
+  box-shadow: 10px 10px 5px grey;
 }
 
 @media (max-width: 768px) {
@@ -138,11 +160,10 @@ header li {
     padding: 1em;
   }
 
-  /* .news {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-  } */
+  .main-image {
+    display: inline;
+    justify-content: center;
+  }
 
   .headline-news {
     padding: 0;
@@ -157,11 +178,14 @@ header li {
     padding-right: 0.25em;
     padding-left: 0.25em;
   }
+
+  .main-info {
+    text-align: left;
+  }
 }
 
 @media (max-width: 375px) {
   .home-page {
-    /* display: flex; */
     display: flexbox;
     flex-direction: column;
     padding: 1em;
@@ -177,22 +201,37 @@ header li {
     width: 100%;
   }
 
-  /* .container-image {
-    width: 50%;
-  } */
-
   .news {
     padding: 0;
-    /* display: flex; */
   }
 
   .headline-news {
-    /* display: flex; */
     padding: 0;
     width: 100%;
   }
 
   .container-image {
     width: 70%;
+  }
+
+  .sections {
+    padding: 1em 0;
+  }
+
+  .main-container {
+    display: inline;
+  }
+
+  .inner-container {
+    display: inline-grid;
+  }
+
+  .main-info {
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    overflow-wrap: break-word;
   }
 }
