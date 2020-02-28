@@ -10,8 +10,7 @@ class Container extends Component {
     super(props)
     this.state = {
       businesses: [],
-      value: "",
-      isLoading: true
+      value: ""
     }
 
     this.fetchBusiness = this.fetchBusiness.bind(this)
@@ -27,8 +26,7 @@ class Container extends Component {
         `
       )
       this.setState({
-        businesses: response.data.response.docs,
-        isLoading: false
+        businesses: response.data.response.docs
       })
     } catch (error) {
       console.log(error)
@@ -52,18 +50,20 @@ class Container extends Component {
     const articles = businesses.map((business, index) => {
       return (
         <div key={index}>
-          <a href={business.web_url}>
-            <h3>{business.abstract}</h3>
-          </a>
-          <p>{business.snippet}</p>
-          <img
-            className="container-image"
-            src={
-              business.multimedia.length
-                ? `https://static01.nyt.com/${business.multimedia[0].url}`
-                : image
-            }
-          />
+          <div className="business-container">
+            <a href={business.web_url}>
+              <h3>{business.abstract}</h3>
+            </a>
+            <p>{business.snippet}</p>
+            <img
+              className="container-image"
+              src={
+                business.multimedia.length
+                  ? `https://static01.nyt.com/${business.multimedia[0].url}`
+                  : image
+              }
+            />
+          </div>
         </div>
       )
     })

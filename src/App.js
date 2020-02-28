@@ -13,9 +13,10 @@ function App() {
       <div className="headline-container">
         <MainArticle />
       </div>
-      <div className="divider"></div>
+      {/* <div className="divider"></div> */}
       <div className="home-page">
         <Container />
+        <div className="divider"></div>
         <Headlines />
       </div>
       <Footer />

@@ -9,8 +9,7 @@ class Container extends Component {
     super(props)
     this.state = {
       businesses: [],
-      value: "",
-      isLoading: true
+      value: ""
     }
 
     this.fetchBusiness = this.fetchBusiness.bind(this)
@@ -26,8 +25,7 @@ class Container extends Component {
         `
       )
       this.setState({
-        businesses: response.data.response.docs,
-        isLoading: false
+        businesses: response.data.response.docs
       })
     } catch (error) {
       console.log(error)
@@ -46,7 +44,7 @@ class Container extends Component {
   }
 
   render() {
-    const { businesses, isLoading } = this.state
+    const { businesses } = this.state
 
     const articles = businesses.map((business, index) => {
       return (

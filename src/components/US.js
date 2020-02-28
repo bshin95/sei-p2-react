@@ -10,8 +10,7 @@ class Container extends Component {
     super(props)
     this.state = {
       usNews: [],
-      value: "",
-      isLoading: true
+      value: ""
     }
 
     this.fetchUS = this.fetchUS.bind(this)
@@ -27,8 +26,7 @@ class Container extends Component {
         `
       )
       this.setState({
-        usNews: response.data.response.docs,
-        isLoading: false
+        usNews: response.data.response.docs
       })
     } catch (error) {
       console.log(error)
@@ -47,23 +45,25 @@ class Container extends Component {
   }
 
   render() {
-    const { usNews, isLoading } = this.state
+    const { usNews } = this.state
 
     const articles = usNews.map((usNew, index) => {
       return (
         <div key={index}>
-          <a href="usNew.web_url">
-            <h3>{usNew.abstract}</h3>
-          </a>
-          <p>{usNew.snippet}</p>
-          <img
-            className="container-image"
-            src={
-              usNew.multimedia.length
-                ? `https://static01.nyt.com/${usNew.multimedia[0].url}`
-                : image
-            }
-          />
+          <div className="us-container">
+            <a href="usNew.web_url">
+              <h3>{usNew.abstract}</h3>
+            </a>
+            <p>{usNew.snippet}</p>
+            <img
+              className="container-image"
+              src={
+                usNew.multimedia.length
+                  ? `https://static01.nyt.com/${usNew.multimedia[0].url}`
+                  : image
+              }
+            />
+          </div>
         </div>
       )
     })

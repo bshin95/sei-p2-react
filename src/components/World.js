@@ -53,18 +53,20 @@ class Container extends Component {
     const worldNews = worlds.map((world, index) => {
       return (
         <div key={index}>
-          <a href={world.web_url}>
-            <h3>{world.abstract}</h3>
-          </a>
-          <p>{world.snippet}</p>
-          <img
-            className="container-image"
-            src={
-              world.multimedia.length
-                ? `https://static01.nyt.com/${world.multimedia[0].url}`
-                : image
-            }
-          />
+          <div className="world-container">
+            <a href={world.web_url}>
+              <h3>{world.abstract}</h3>
+            </a>
+            <p>{world.snippet}</p>
+            <img
+              className="container-image"
+              src={
+                world.multimedia.length
+                  ? `https://static01.nyt.com/${world.multimedia[0].url}`
+                  : image
+              }
+            />
+          </div>
         </div>
       )
     })

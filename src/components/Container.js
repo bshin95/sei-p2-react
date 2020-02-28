@@ -54,18 +54,22 @@ class Container extends Component {
     const articles = titles.map((title, index) => {
       return (
         <div key={index}>
-          <a href={title.web_url}>
-            <h3>{title.abstract}</h3>
-          </a>
-          <p>{title.lead_paragraph}</p>
-          <img
-            className="container-image"
-            src={
-              title.multimedia.length
-                ? `https://static01.nyt.com/${title.multimedia[0].url}`
-                : image
-            }
-          />
+          <div className="container-box">
+            <div className="information">
+              <a href={title.web_url}>
+                <h3>{title.abstract}</h3>
+              </a>
+              <p>{title.lead_paragraph}</p>
+            </div>
+            <img
+              className="container-image"
+              src={
+                title.multimedia.length
+                  ? `https://static01.nyt.com/${title.multimedia[0].url}`
+                  : image
+              }
+            />
+          </div>
         </div>
       )
     })

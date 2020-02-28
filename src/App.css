@@ -82,11 +82,6 @@ header li {
   border-top: 3px solid black;
   width: 90%;
 }
-
-/* .home-page {
-  display: flex;
-} */
-
 .news {
   padding: 0 5em;
 }
@@ -105,8 +100,8 @@ header li {
 
 .splitter {
   border: 1px solid rgba(20, 0, 0, 0.2);
-  -webkit-background-clip: padding-box; /* for Safari */
-  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   margin: 1em;
 }
 
@@ -137,7 +132,8 @@ header li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left;
+  text-align: center;
+  font-size: 1.5em;
 }
 
 .sections {
@@ -152,6 +148,92 @@ input {
 button {
   margin: 0 1em;
   box-shadow: 10px 10px 5px grey;
+}
+
+.container-box {
+  margin: 2em 0;
+  display: flex;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.information {
+  flex-direction: start;
+  text-align: left;
+  padding: 1em;
+}
+
+.container-image {
+  padding: 1em;
+}
+
+.world-container {
+  margin: 2em 0;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.us-container {
+  margin: 2em 0;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+.politics-container {
+  margin: 2em 0;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.business-container {
+  margin: 2em 0;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.sports-container {
+  margin: 2em 0;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.economy-container {
+  margin: 2em 0;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.headline-box {
+  margin: 2em 0;
+  display: flex;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.headline-image {
+  padding: 1em;
+  flex-direction: right;
+}
+
+.header-info {
+  flex-direction: start;
+  text-align: left;
+  padding: 1em;
+  align-items: center;
+}
+
+.main-news {
+  background-image: url("https://images.unsplash.com/photo-1521295121783-8a321d551ad2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+  padding: 1em;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 @media (max-width: 768px) {
@@ -181,6 +263,32 @@ button {
 
   .main-info {
     text-align: left;
+  }
+
+  .container-box {
+    display: inline;
+  }
+
+  .information {
+    text-align: center;
+    padding: 0em;
+  }
+
+  .container-image {
+    padding: 0em;
+  }
+
+  .headline-box {
+    display: inline;
+  }
+
+  .headline-image {
+    padding: 0em;
+  }
+
+  .header-info {
+    text-align: center;
+    padding: 0em;
   }
 }
 
@@ -224,10 +332,14 @@ button {
 
   .inner-container {
     display: inline-grid;
+    margin-left: 5em;
+    margin-left: 0;
   }
 
   .main-info {
     text-align: center;
+    margin-right: 5em;
+    margin-right: 0;
   }
 
   footer {

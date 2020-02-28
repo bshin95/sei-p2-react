@@ -48,18 +48,22 @@ class Headlines extends Component {
           {!this.state.isLoading ? (
             <>
               <div key={index}>
-                <a href={headline.uri}>
-                  <h3>{headline.title}</h3>
-                </a>
-                <p>{headline.abstract}</p>
-                <img
-                  className="headline-image"
-                  src={
-                    headline.media.length
-                      ? headline.media[0]["media-metadata"][2].url
-                      : image
-                  }
-                />
+                <div className="headline-box">
+                  <img
+                    className="headline-image"
+                    src={
+                      headline.media.length
+                        ? headline.media[0]["media-metadata"][2].url
+                        : image
+                    }
+                  />
+                  <div className="header-info">
+                    <a href={headline.uri}>
+                      <h3>{headline.title}</h3>
+                    </a>
+                    <p>{headline.abstract}</p>
+                  </div>
+                </div>
               </div>
               <div className="splitter"></div>
             </>

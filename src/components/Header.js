@@ -5,8 +5,6 @@ import World from "./World"
 import US from "./US"
 import Politics from "./Politics"
 import Economy from "./Economy"
-import Technology from "./Technology"
-import Health from "./Health"
 import { Link, Route, Switch } from "react-router-dom"
 
 const Header = () => (

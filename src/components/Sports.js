@@ -10,8 +10,7 @@ class Container extends Component {
     super(props)
     this.state = {
       sports: [],
-      value: "",
-      isLoading: true
+      value: ""
     }
 
     this.fetchSports = this.fetchSports.bind(this)
@@ -27,8 +26,7 @@ class Container extends Component {
         `
       )
       this.setState({
-        sports: response.data.response.docs,
-        isLoading: false
+        sports: response.data.response.docs
       })
     } catch (error) {
       console.log(error)
@@ -52,18 +50,20 @@ class Container extends Component {
     const articles = sports.map((sport, index) => {
       return (
         <div key={index}>
-          <a href={sport.web_url}>
-            <h3>{sport.abstract}</h3>
-          </a>
-          <p>{sport.snippet}</p>
-          <img
-            className="container-image"
-            src={
-              sport.multimedia.length
-                ? `https://static01.nyt.com/${sport.multimedia[0].url}`
-                : image
-            }
-          />
+          <div className="sports-container">
+            <a href={sport.web_url}>
+              <h3>{sport.abstract}</h3>
+            </a>
+            <p>{sport.snippet}</p>
+            <img
+              className="container-image"
+              src={
+                sport.multimedia.length
+                  ? `https://static01.nyt.com/${sport.multimedia[0].url}`
+                  : image
+              }
+            />
+          </div>
         </div>
       )
     })

@@ -10,8 +10,7 @@ class Container extends Component {
     super(props)
     this.state = {
       politics: [],
-      value: "",
-      isLoading: true
+      value: ""
     }
 
     this.fetchPolitics = this.fetchPolitics.bind(this)
@@ -27,8 +26,7 @@ class Container extends Component {
         `
       )
       this.setState({
-        politics: response.data.response.docs,
-        isLoading: false
+        politics: response.data.response.docs
       })
     } catch (error) {
       console.log(error)
@@ -47,23 +45,25 @@ class Container extends Component {
   }
 
   render() {
-    const { politics, isLoading } = this.state
+    const { politics } = this.state
 
     const articles = politics.map((politic, index) => {
       return (
         <div key={index}>
-          <a href={politic.web_url}>
-            <h3>{politic.abstract}</h3>
-          </a>
-          <p>{politic.snippet}</p>
-          <img
-            className="container-image"
-            src={
-              politic.multimedia.length
-                ? `https://static01.nyt.com/${politic.multimedia[0].url}`
-                : image
-            }
-          />
+          <div className="politics-container">
+            <a href={politic.web_url}>
+              <h3>{politic.abstract}</h3>
+            </a>
+            <p>{politic.snippet}</p>
+            <img
+              className="container-image"
+              src={
+                politic.multimedia.length
+                  ? `https://static01.nyt.com/${politic.multimedia[0].url}`
+                  : image
+              }
+            />
+          </div>
         </div>
       )
     })

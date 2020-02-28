@@ -25,7 +25,6 @@ class Headlines extends Component {
         `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${NY_TIMES}
         `
       )
-      console.log(response.data.results)
       this.setState({
         mainHeadliners: response.data.results,
         isLoading: false
@@ -51,16 +50,14 @@ class Headlines extends Component {
             <>
               <div key={index}>
                 <div className="main-container">
-                  <div className="inner-container">
-                    <img
+                  {/* <img
                       className="main-image"
                       src={
                         main.media.length
                           ? main.media[0]["media-metadata"][1].url
                           : image
                       }
-                    />
-                  </div>
+                    /> */}
                   <div className="main-info">
                     <a href={main.uri}>
                       <h3>{main.title}</h3>

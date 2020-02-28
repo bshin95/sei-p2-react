@@ -10,8 +10,7 @@ class Container extends Component {
     super(props)
     this.state = {
       economies: [],
-      value: "",
-      isLoading: true
+      value: ""
     }
 
     this.fetchEconomy = this.fetchEconomy.bind(this)
@@ -27,8 +26,7 @@ class Container extends Component {
         `
       )
       this.setState({
-        economies: response.data.response.docs,
-        isLoading: false
+        economies: response.data.response.docs
       })
     } catch (error) {
       console.log(error)
@@ -52,18 +50,20 @@ class Container extends Component {
     const articles = economies.map((economy, index) => {
       return (
         <div key={index}>
-          <a href={economy.web_url}>
-            <h3>{economy.abstract}</h3>
-          </a>
-          <p>{economy.snippet}</p>
-          <img
-            className="container-image"
-            src={
-              economy.multimedia.length
-                ? `https://static01.nyt.com/${economy.multimedia[0].url}`
-                : image
-            }
-          />
+          <div className="economy-container">
+            <a href={economy.web_url}>
+              <h3>{economy.abstract}</h3>
+            </a>
+            <p>{economy.snippet}</p>
+            <img
+              className="container-image"
+              src={
+                economy.multimedia.length
+                  ? `https://static01.nyt.com/${economy.multimedia[0].url}`
+                  : image
+              }
+            />
+          </div>
         </div>
       )
     })

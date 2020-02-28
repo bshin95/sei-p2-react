@@ -12,39 +12,34 @@ import { Link, Route, Switch } from "react-router-dom"
 const Footer = () => (
   <header>
     <div className="divider"></div>
-    <div>
-      <nav className="sections">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/World">World</Link>
-        </li>
-        <li>
-          <Link to="/US">US</Link>
-        </li>
-        <li>
-          <Link to="/Politics">Politics</Link>
-        </li>
-        <li>
-          <Link to="/Economy">Economy</Link>
-        </li>
-        <br></br>
-        <li>
-          <Link to="/Business">Business</Link>
-        </li>
-        <li>
-          <Link to="/Technology">Technology</Link>
-        </li>
-        <li>
-          <Link to="/Health">Health</Link>
-        </li>
-        <li>
-          <Link to="/Sports">Sports</Link>
-        </li>
-      </nav>
-      <h1 className="footer-title"> ©2020 The Times</h1>
+    <div className="footer-container">
+      <div className="tabs">
+        <nav className="sections">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/World">World</Link>
+          </li>
+          <li>
+            <Link to="/US">US</Link>
+          </li>
+          <li>
+            <Link to="/Politics">Politics</Link>
+          </li>
+          <li>
+            <Link to="/Economy">Economy</Link>
+          </li>
+          <li>
+            <Link to="/Business">Business</Link>
+          </li>
+          <li>
+            <Link to="/Sports">Sports</Link>
+          </li>
+        </nav>
+      </div>
     </div>
+    <h1 className="footer-title"> ©2020 The Times</h1>
     <main>
       <Switch>
         <Route path="/World">
@@ -61,12 +56,6 @@ const Footer = () => (
         </Route>
         <Route path="/Economy">
           <Economy />
-        </Route>
-        <Route path="/Technology">
-          <Technology />
-        </Route>
-        <Route path="/Health">
-          <Health />
         </Route>
         <Route path="/Sports">
           <Sports />
