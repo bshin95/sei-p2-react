@@ -153,9 +153,6 @@ button {
 .container-box {
   margin: 2em 0;
   display: flex;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
 }
 
 .information {
@@ -166,55 +163,6 @@ button {
 
 .container-image {
   padding: 1em;
-}
-
-.world-container {
-  margin: 2em 0;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-}
-
-.us-container {
-  margin: 2em 0;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-}
-.politics-container {
-  margin: 2em 0;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-}
-
-.business-container {
-  margin: 2em 0;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-}
-
-.sports-container {
-  margin: 2em 0;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-}
-
-.economy-container {
-  margin: 2em 0;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-}
-
-.headline-box {
-  margin: 2em 0;
-  display: flex;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
 }
 
 .headline-image {
