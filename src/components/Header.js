@@ -5,6 +5,7 @@ import World from "./World"
 import US from "./US"
 import Politics from "./Politics"
 import Economy from "./Economy"
+import errorPage from "./ErrorPage"
 import { Link, Route, Switch } from "react-router-dom"
 
 const Header = () => (
